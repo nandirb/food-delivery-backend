@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 import { foodCategoryRouter } from './router/food-category';
 import { foodRouter } from './router/food';
+import { auth, CustomRequest } from './middleware/auth';
+import { foodOrderRouter } from './router/food-order';
 
 const PORT = 8000;
 const app = express();
@@ -32,6 +34,7 @@ connectMongoDB();
 
 app.use('/food-category', foodCategoryRouter);
 app.use('/food', foodRouter);
+app.use('/food-order', foodOrderRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);

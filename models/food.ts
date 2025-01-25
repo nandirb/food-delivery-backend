@@ -8,6 +8,7 @@ const FOOD_SCHEMA = new Schema(
     },
     category: {
       type: Schema.Types.ObjectId,
+      ref: 'FoodCategory',
     },
     image: String,
   },
