@@ -4,8 +4,9 @@ import { auth, CustomRequest } from '../middleware/auth';
 
 export const foodRouter = Router();
 
-foodRouter.get('/', auth, async (req: CustomRequest, res: Response) => {
-  const items = await FoodModel.find({});
+foodRouter.get('/', async (req: CustomRequest, res: Response) => {
+  const filter = req.query.category ? { category: req.query.category } : {};
+  const items = await FoodModel.find(filter).populate('category');
 
   res.json(items);
 });
@@ -25,7 +26,7 @@ foodRouter.post('/', auth, async (req: Request, res: Response) => {
 
 foodRouter.get('/:id', auth, async (req: Request, res: Response) => {
   const id = req.params.id;
-  const item = await FoodModel.findById(id);
+  const item = await FoodModel.findById(id).populate('category');
   res.json(item);
 });
 

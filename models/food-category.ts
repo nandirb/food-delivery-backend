@@ -8,6 +8,7 @@ const FOOD_CATEGORY_SCHEMA = new Schema(
 );
 
 const FoodCategoryModel =
-  models['FoodCategory'] || model('FoodCategory', FOOD_CATEGORY_SCHEMA);
+  models['FoodCategory'] ||
+  model('FoodCategory', FOOD_CATEGORY_SCHEMA, 'food-category');
 
 export { FoodCategoryModel };

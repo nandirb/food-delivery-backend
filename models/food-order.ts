@@ -15,6 +15,7 @@ const FOOD_ORDER_SCHEMA = new Schema(
       enum: ['PENDING', 'CANCELED', 'DELIVERED'],
       default: 'PENDING',
     },
+    address: String,
   },
   { timestamps: true }
 );
