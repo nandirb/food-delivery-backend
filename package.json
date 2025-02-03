@@ -4,7 +4,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "nodemon index.ts",
-    "start": "ts-node -r tsconfig-paths/register index.ts",
+    "start": "node index.ts",
     "build": "tsc"
   },
   "keywords": [],
